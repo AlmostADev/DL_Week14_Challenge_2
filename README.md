@@ -40,41 +40,41 @@
     resources :employees, only: [:create]
     ~~~
 
-- En la terminal ejecutar **rails routes** para corroborar la ruta creada. La ruta generada debe contener el **:company_id** y apuntar al método **employees#create**. :x:
+- En la terminal ejecutar **rails routes** para corroborar la ruta creada. La ruta generada debe contener el **:company_id** y apuntar al método **employees#create**. :heavy_check_mark:
 
-- Para poder almacenar un registro en el método create primero debemos generar el filtro de parámetros conocido como **strong params**, para ello: :x:
+- Para poder almacenar un registro en el método create primero debemos generar el filtro de parámetros conocido como **strong params**, para ello: :heavy_check_mark:
 
-    - En el controller **employees** crear el método **employee_params**. Este método debe permitir y retornar los campos necesarios para la creación de un nuevo empleado, es decir, first_name, last_name y email. :x:
+    - En el controller **employees** crear el método **employee_params**. Este método debe permitir y retornar los campos necesarios para la creación de un nuevo empleado, es decir, first_name, last_name y email. :heavy_check_mark:
 
-- En el controller **employees** crear el método **create**. Este método debe generar una nueva instancia de *Employee* recibiendo como argumento **employee_params** y almacenarlo en la BD. Luego redireccionar a la vista *show* de la empresa involucrada. :x:
+- En el controller **employees** crear el método **create**. Este método debe generar una nueva instancia de *Employee* recibiendo como argumento **employee_params** y almacenarlo en la BD. Luego redireccionar a la vista *show* de la empresa involucrada. :heavy_check_mark:
 
-- En la vista *Show* de *companies* además del detalle de la empresa, se debe agregar un formulario que permita ingresar un nuevo empleado a la empresa seleccionada. :x:
+- En la vista *Show* de *companies* además del detalle de la empresa, se debe agregar un formulario que permita ingresar un nuevo empleado a la empresa seleccionada. :heavy_check_mark:
 
-    - El formulario debe ser generado utilizando el helper *form_with* anidando los dos modelos y debe implementar las clases de bootstrap (revisar docs). :x:
+    - El formulario debe ser generado utilizando el helper *form_with* anidando los dos modelos y debe implementar las clases de bootstrap (revisar docs). :heavy_check_mark:
 
     ~~~ruby
     <%= form_with(model: [ @company, @employee ]) do |form| %>
     ~~~
 
-    - Donde **@employee** debe ser declarado en el método correspondiente como una nueva instancia de **Employee**. :x:
+    - Donde **@employee** debe ser declarado en el método correspondiente como una nueva instancia de **Employee**. :heavy_check_mark:
 
-    - El formulario debe tener campos para *first_name*, *last_name*, *email*, *area*. :x:
+    - El formulario debe tener campos para *first_name*, *last_name*, *email*, *area*. :heavy_check_mark:
     
     	> Recordar que el campo area debe ser un select.
 
-- En la vista *show*, bajo el formulario, se deben listar todos los empleados correspondientes a esa empresa en una tabla con los campos *first_name*, *last_name*, *email* y *area*. :x:
+- En la vista *show*, bajo el formulario, se deben listar todos los empleados correspondientes a esa empresa en una tabla con los campos *first_name*, *last_name*, *email* y *area*. :heavy_check_mark:
 
-- Junto a cada registro de empleado en la tabla se debe añadir un botón para eliminar el empleado. Para ello: :x:
+- Junto a cada registro de empleado en la tabla se debe añadir un botón para eliminar el empleado. Para ello: :heavy_check_mark:
 
-    - Agregar el método *destroy* a la ruta anidada. :x:
+    - Agregar el método *destroy* a la ruta anidada. :heavy_check_mark:
 
      ~~~ruby
      resources :employees, only: [:create, :destroy]
      ~~~
 
-     - Crear el método correspondiente en el controller. :x:
+     - Crear el método correspondiente en el controller. :heavy_check_mark:
 
-     - Agregar el botón con el *method: :delete* a cada registro de empleados en la tabla. :x:
+     - Agregar el botón con el *method: :delete* a cada registro de empleados en la tabla. :heavy_check_mark:
 
 - En la vista *Index* de *companies*: 
     - Los registros deben estar listados en una tabla (bootstrap) que contenga el nombre de la empresa y la cantidad de empleados que existe por área (**count**). :x:

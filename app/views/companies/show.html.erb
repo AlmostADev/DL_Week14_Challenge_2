@@ -5,5 +5,52 @@
   <%= @company.name %>
 </p>
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+<%= form_with(model: [ @company, Employee.new ]) do |form| %>
+  <div class="form-group">
+    <%= form.label :first_name, "First Name"%>
+    <%= form.text_field :first_name %>
+  <div class="form-group">
+    <%= form.label :last_name, "Last Name"%>
+    <%= form.text_field :last_name %>
+  </div>
+  <div class="form-group">
+    <%= form.label :email, "Email"%>
+    <%= form.text_field :email %>
+  </div>
+  <div class="form-group">
+    <%= form.label :area%>
+    <%= form.select :area_id, Area.pluck(:name, :id) %>
+  </div>
+  <div class="form-group">
+    <%= form.submit 'New Employee', class:'btn btn-primary btn-xs' %>
+  </div>
+<%end%>
+
+<div class="form-group">
+  <%= link_to 'Edit', edit_company_path(@company) %> |
+  <%= link_to 'Back', companies_path %>
+</div>
+
+<table class="table text-center">
+  <thead>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Area</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <% @company.employees.each do |employee| %>
+  <tbody>
+    <tr>
+      <td> <%= employee.first_name %> </td>
+      <td> <%= employee.last_name %> </td>
+      <td> <%= employee.email %> </td>
+      <td> <%= employee.area.name %> </td>
+      <td> <%= link_to "Destroy", company_employee_path(@company, employee), method: :delete, class:'btn btn-danger btn-sm' %> </td>
+    <%end%>
+    </tr>
+  </tbody>
+</table>
