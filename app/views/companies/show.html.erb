@@ -4,31 +4,29 @@
   <strong>Name:</strong>
   <%= @company.name %>
 </p>
-
-<%= form_with(model: [ @company, Employee.new ]) do |form| %>
-  <div class="form-group">
-    <%= form.label :first_name, "First Name"%>
-    <%= form.text_field :first_name %>
-  <div class="form-group">
-    <%= form.label :last_name, "Last Name"%>
-    <%= form.text_field :last_name %>
-  </div>
-  <div class="form-group">
-    <%= form.label :email, "Email"%>
-    <%= form.text_field :email %>
-  </div>
-  <div class="form-group">
-    <%= form.label :area%>
-    <%= form.select :area_id, Area.pluck(:name, :id) %>
-  </div>
-  <div class="form-group">
-    <%= form.submit 'New Employee', class:'btn btn-primary btn-xs' %>
-  </div>
-<%end%>
-
-<div class="form-group">
-  <%= link_to 'Edit', edit_company_path(@company) %> |
-  <%= link_to 'Back', companies_path %>
+<div class='row'>
+<div class='col-md-4 mr-auto'>
+  <%= form_with(model: [ @company, Employee.new ]) do |form| %>
+    <div class="form-group">
+      <%= form.label :first_name, "First Name"%>
+      <%= form.text_field :first_name, class: 'form-control' %>
+    <div class="form-group">
+      <%= form.label :last_name, "Last Name"%>
+      <%= form.text_field :last_name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= form.label :email, "Email"%>
+      <%= form.text_field :email, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= form.label :area%>
+      <%= form.select :area_id, Area.pluck(:name, :id), class: 'form-control'%>
+    </div>
+    <div class="form-group">
+      <%= form.submit 'New Employee', class:'btn btn-primary btn-xs' %>
+    </div>
+  <%end%>
+</div>
 </div>
 
 <table class="table text-center">
@@ -54,3 +52,8 @@
     </tr>
   </tbody>
 </table>
+
+<div>
+  <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-info' %> |
+  <%= link_to 'Back', companies_path, class: 'btn btn-dark' %>
+</div>

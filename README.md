@@ -77,11 +77,11 @@
      - Agregar el botón con el *method: :delete* a cada registro de empleados en la tabla. :heavy_check_mark:
 
 - En la vista *Index* de *companies*: 
-    - Los registros deben estar listados en una tabla (bootstrap) que contenga el nombre de la empresa y la cantidad de empleados que existe por área (**count**). :x:
+    - Los registros deben estar listados en una tabla (bootstrap) que contenga el nombre de la empresa y la cantidad de empleados que existe por área (**count**). :heavy_check_mark:
 
-    - Al hacer click en el nombre de la empresa debe redireccionar a la vista *show* de esa empresa. :x:
+    - Al hacer click en el nombre de la empresa debe redireccionar a la vista *show* de esa empresa. :heavy_check_mark:
 
-    - Cada categoría ademas debe ir acompañada de botones para *Edit* y *Destroy* utilizando la clases de bootstrap. :x:
+    - Cada categoría ademas debe ir acompañada de botones para *Edit* y *Destroy* utilizando la clases de bootstrap. :heavy_check_mark:
 
 - En *application.html.erb*:
-	- En una vista parcial, agregar un navbar (**fixed**) con bootstrap con los link para acceder al home (index de empresas), para agregar nueva empresa y para agregar nueva área. :x:
+	- En una vista parcial, agregar un navbar (**fixed**) con bootstrap con los link para acceder al home (index de empresas), para agregar nueva empresa y para agregar nueva área. :heavy_check_mark:
