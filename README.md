@@ -6,82 +6,82 @@
 
 ## Ejercicio 1:
 
-- Iniciar un nuevo proyecto en Rails 5.1
+- Iniciar un nuevo proyecto en Rails 5.1 :heavy_check_mark:
 
-- Añadir el **CDN de Boostrap** al layout
+- Añadir el **CDN de Boostrap** al layout :heavy_check_mark:
 
-- Añadir el **CDN de jQuery** al layout
+- Añadir el **CDN de jQuery** al layout :heavy_check_mark:
 
-- Crear un scaffold **Company** con el campo *name* (string)
+- Crear un scaffold **Company** con el campo *name* (string) :heavy_check_mark:
 
-- Revisar y correr la migración
+- Revisar y correr la migración :heavy_check_mark:
 
-- Crear un scaffold **Area** con el campo *name* (string)
+- Crear un scaffold **Area** con el campo *name* (string) :heavy_check_mark:
 
-- Revisar y correr la migración
+- Revisar y correr la migración :heavy_check_mark:
 
-- Convertir el *index* de *companies* en la página de inicio.
+- Convertir el *index* de *companies* en la página de inicio. :heavy_check_mark:
 
-- Crear un modelo **Employee** con los campos *first_name* (string), *last_name* (string), email (string), *company:references* y *area:references*.
+- Crear un modelo **Employee** con los campos *first_name* (string), *last_name* (string), email (string), *company:references* y *area:references*. :heavy_check_mark:
 
-- Revisar y correr la migración.
+- Revisar y correr la migración. :heavy_check_mark:
 
-- En los modelos *Company* y *Area* agregar la relación con *Employee* (**has_many**) y verificar que el modelo *Employee* se haya creado con las relaciones correctas (**belongs_to**)
+- En los modelos *Company* y *Area* agregar la relación con *Employee* (**has_many**) y verificar que el modelo *Employee* se haya creado con las relaciones correctas (**belongs_to**) :heavy_check_mark:
 
     > Recordar las relaciones entre empresa - empleado y empleado - area en el enunciado.
 
-- Crear el controller **employees**.
+- Crear el controller **employees**. :heavy_check_mark:
 
-- Generar la ruta para la creación de un empleado asociado a una empresa.
+- Generar la ruta para la creación de un empleado asociado a una empresa. :heavy_check_mark:
 
-    - Para ello modificar la ruta resources de companies que ahora recibirá un bloque y dentro crearemos la ruta que apuntará al método create de employees.
+    - Para ello modificar la ruta resources de companies que ahora recibirá un bloque y dentro crearemos la ruta que apuntará al método create de employees. :heavy_check_mark:
     
     ~~~ruby
     resources :employees, only: [:create]
     ~~~
 
-- En la terminal ejecutar **rails routes** para corroborar la ruta creada. La ruta generada debe contener el **:company_id** y apuntar al método **employees#create**.
+- En la terminal ejecutar **rails routes** para corroborar la ruta creada. La ruta generada debe contener el **:company_id** y apuntar al método **employees#create**. :x:
 
-- Para poder almacenar un registro en el método create primero debemos generar el filtro de parámetros conocido como **strong params**, para ello:
+- Para poder almacenar un registro en el método create primero debemos generar el filtro de parámetros conocido como **strong params**, para ello: :x:
 
-    - En el controller **employees** crear el método **employee_params**. Este método debe permitir y retornar los campos necesarios para la creación de un nuevo empleado, es decir, first_name, last_name y email.
+    - En el controller **employees** crear el método **employee_params**. Este método debe permitir y retornar los campos necesarios para la creación de un nuevo empleado, es decir, first_name, last_name y email. :x:
 
-- En el controller **employees** crear el método **create**. Este método debe generar una nueva instancia de *Employee* recibiendo como argumento **employee_params** y almacenarlo en la BD. Luego redireccionar a la vista *show* de la empresa involucrada.
+- En el controller **employees** crear el método **create**. Este método debe generar una nueva instancia de *Employee* recibiendo como argumento **employee_params** y almacenarlo en la BD. Luego redireccionar a la vista *show* de la empresa involucrada. :x:
 
-- En la vista *Show* de *companies* además del detalle de la empresa, se debe agregar un formulario que permita ingresar un nuevo empleado a la empresa seleccionada.
+- En la vista *Show* de *companies* además del detalle de la empresa, se debe agregar un formulario que permita ingresar un nuevo empleado a la empresa seleccionada. :x:
 
-    - El formulario debe ser generado utilizando el helper *form_with* anidando los dos modelos y debe implementar las clases de bootstrap (revisar docs).
+    - El formulario debe ser generado utilizando el helper *form_with* anidando los dos modelos y debe implementar las clases de bootstrap (revisar docs). :x:
 
     ~~~ruby
     <%= form_with(model: [ @company, @employee ]) do |form| %>
     ~~~
 
-    - Donde **@employee** debe ser declarado en el método correspondiente como una nueva instancia de **Employee**.
+    - Donde **@employee** debe ser declarado en el método correspondiente como una nueva instancia de **Employee**. :x:
 
-    - El formulario debe tener campos para *first_name*, *last_name*, *email*, *area*.
+    - El formulario debe tener campos para *first_name*, *last_name*, *email*, *area*. :x:
     
     	> Recordar que el campo area debe ser un select.
 
-- En la vista *show*, bajo el formulario, se deben listar todos los empleados correspondientes a esa empresa en una tabla con los campos *first_name*, *last_name*, *email* y *area*.
+- En la vista *show*, bajo el formulario, se deben listar todos los empleados correspondientes a esa empresa en una tabla con los campos *first_name*, *last_name*, *email* y *area*. :x:
 
-- Junto a cada registro de empleado en la tabla se debe añadir un botón para eliminar el empleado. Para ello:
+- Junto a cada registro de empleado en la tabla se debe añadir un botón para eliminar el empleado. Para ello: :x:
 
-    - Agregar el método *destroy* a la ruta anidada.
+    - Agregar el método *destroy* a la ruta anidada. :x:
 
      ~~~ruby
      resources :employees, only: [:create, :destroy]
      ~~~
 
-     - Crear el método correspondiente en el controller.
+     - Crear el método correspondiente en el controller. :x:
 
-     - Agregar el botón con el *method: :delete* a cada registro de empleados en la tabla.
+     - Agregar el botón con el *method: :delete* a cada registro de empleados en la tabla. :x:
 
 - En la vista *Index* de *companies*: 
-    - Los registros deben estar listados en una tabla (bootstrap) que contenga el nombre de la empresa y la cantidad de empleados que existe por área (**count**).
+    - Los registros deben estar listados en una tabla (bootstrap) que contenga el nombre de la empresa y la cantidad de empleados que existe por área (**count**). :x:
 
-    - Al hacer click en el nombre de la empresa debe redireccionar a la vista *show* de esa empresa.
+    - Al hacer click en el nombre de la empresa debe redireccionar a la vista *show* de esa empresa. :x:
 
-    - Cada categoría ademas debe ir acompañada de botones para *Edit* y *Destroy* utilizando la clases de bootstrap.
+    - Cada categoría ademas debe ir acompañada de botones para *Edit* y *Destroy* utilizando la clases de bootstrap. :x:
 
 - En *application.html.erb*:
-	- En una vista parcial, agregar un navbar (**fixed**) con bootstrap con los link para acceder al home (index de empresas), para agregar nueva empresa y para agregar nueva área.
+	- En una vista parcial, agregar un navbar (**fixed**) con bootstrap con los link para acceder al home (index de empresas), para agregar nueva empresa y para agregar nueva área. :x:
